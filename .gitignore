@@ -5,3 +5,4 @@ node_modules/
 playwright.config.ts
 package.json
 package-lock.json
+AGENTS.md
