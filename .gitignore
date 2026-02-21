@@ -1,0 +1,7 @@
+output/
+tests/
+node_modules/
+.vscode/
+playwright.config.ts
+package.json
+package-lock.json
