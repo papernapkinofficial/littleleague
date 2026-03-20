@@ -1,0 +1,237 @@
+:root {
+  --bg-top: #f5efe1;
+  --bg-bottom: #d4e7f3;
+  --surface: rgba(255, 252, 246, 0.88);
+  --surface-border: rgba(35, 61, 82, 0.14);
+  --shadow: 0 28px 60px rgba(27, 46, 58, 0.12);
+  --ink-strong: #173346;
+  --ink-soft: #3f5969;
+  --accent: #b13b29;
+  --accent-deep: #80261a;
+  --field: #6e9c52;
+  --line: #f8f1df;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+  color: var(--ink-strong);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 38%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 28%, rgba(255, 255, 255, 0.35) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 70%, rgba(255, 255, 255, 0.3) 0 2px, transparent 3px);
+  opacity: 0.7;
+}
+
+.hero {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  border-radius: 0 0 2.75rem 2.75rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  width: min(100% - 2rem, 540px);
+  margin: -4.75rem 0 0 1.25rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.5rem;
+  background: rgba(248, 241, 223, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(23, 51, 70, 0.12);
+}
+
+.eyebrow,
+.section-label {
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  margin-top: 0.45rem;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.94;
+}
+
+.hero-text {
+  margin: 0.8rem 0 0;
+  max-width: 30ch;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.page-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem 2.5rem;
+}
+
+.card {
+  position: relative;
+  padding: 1.6rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 1.7rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 0.45rem;
+  background: linear-gradient(90deg, var(--accent), #e09d3d, var(--field));
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+}
+
+.about p,
+.calendar-intro,
+.details-grid p,
+.footer p {
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.details-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.details-grid article {
+  padding: 1rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(35, 61, 82, 0.08);
+}
+
+.details-grid h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+}
+
+.calendar-shell {
+  margin-top: 1rem;
+  padding: 0.65rem;
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(177, 59, 41, 0.16), rgba(11, 87, 208, 0.08)),
+    #fffdfa;
+  border: 1px solid rgba(35, 61, 82, 0.08);
+}
+
+.calendar-shell iframe {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  border: 0;
+  border-radius: 1rem;
+  background: white;
+}
+
+.footer {
+  padding: 0 1.25rem 2.5rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0 auto;
+  max-width: 42rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    width: calc(100% - 2.5rem);
+    margin: -3.25rem auto 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 0.8rem 0.8rem 0;
+  }
+
+  .hero-image {
+    min-height: 230px;
+    border-radius: 0 0 2rem 2rem;
+  }
+
+  .hero-copy {
+    width: calc(100% - 1.6rem);
+    margin-top: -2.5rem;
+    padding: 1.2rem 1.15rem;
+  }
+
+  .page-shell {
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0 0.8rem 2rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    border-radius: 1.3rem;
+  }
+
+  .calendar-shell {
+    padding: 0.45rem;
+  }
+
+  .calendar-shell iframe {
+    min-height: 520px;
+  }
+}
