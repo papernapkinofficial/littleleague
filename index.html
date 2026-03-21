@@ -13,10 +13,7 @@
   <body>
     <div class="header-brand">
       <img src="assets/brawley_ll_logo.png" alt="Brawley Little League logo" />
-      <!-- TODO: style this properly in style.css -->
-      <h1 style="color: #fff; font-size: 3vw; margin-left: 20px">
-        BRAWLEY LITTLE LEAGUE
-      </h1>
+      <p class="header-title">Brawley Little League</p>
     </div>
 
     <header class="hero">
@@ -54,6 +51,12 @@
           alt=""
           aria-hidden="true"
         />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/6.JPG"
+          alt=""
+          aria-hidden="true"
+        />
       </div>
       <!-- <div class="hero-copy">
         <p class="eyebrow">Brawley, CA Little League</p>
@@ -76,6 +79,13 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
           dicta quidem dolorem, ex hic voluptate!
         </p>
+        <figure class="about-photo">
+          <img
+            src="assets/brawley_ll_board.JPG"
+            alt="Brawley Little League board members gathered together"
+            loading="lazy"
+          />
+        </figure>
         <div class="details-grid" aria-label="Team highlights">
           <div class="about-card">
             <h3>Card 1</h3>
@@ -125,7 +135,13 @@
       );
 
       if (carouselSlides.length > 1) {
-        let order = shuffle([...carouselSlides.keys()]);
+        const firstSlideIndex = 0;
+        let order = [
+          firstSlideIndex,
+          ...shuffle(
+            [...carouselSlides.keys()].filter((index) => index !== firstSlideIndex),
+          ),
+        ];
         let currentPosition = 0;
 
         setActiveSlide(order[currentPosition]);

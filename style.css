@@ -23,9 +23,10 @@ body {
   min-height: 100vh;
   padding-top: var(--brand-bar-height);
   font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+
   color: var(--ink-strong);
   /* background-color: var(--ll-purple); */
-  background-color: var(--bg-top);
+  background-color: #ffffff;
 }
 
 body::before {
@@ -67,6 +68,7 @@ body::before {
   z-index: 20;
   display: flex;
   align-items: center;
+  gap: 1rem;
   height: var(--brand-bar-height);
   padding: 0.9rem 1.25rem;
   background: rgba(0, 0, 58, 0.96);
@@ -79,8 +81,17 @@ body::before {
   display: block;
   max-height: 100%;
   width: auto;
-  max-width: min(280px, 60vw);
+  max-width: min(280px, 42vw);
   object-fit: contain;
+}
+
+.header-title {
+  margin: 0;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
 }
 
 .hero-image {
@@ -194,6 +205,18 @@ h2 {
   color: var(--ink-soft);
 }
 
+.about-photo {
+  margin: 1.25rem 0 0;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
 .details-grid {
   display: grid;
   gap: 1rem;
@@ -232,14 +255,18 @@ h2 {
 }
 
 .footer {
-  padding: 0 1.25rem 2.5rem;
+  padding: 1.4rem 1.25rem 2.5rem;
   text-align: center;
+  background: rgba(0, 0, 58, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -10px 24px rgba(5, 9, 28, 0.16);
 }
 
 .footer p {
   margin: 0 auto;
   max-width: 42rem;
   font-size: 0.95rem;
+  color: #ffffff;
 }
 
 @media (max-width: 860px) {
@@ -260,6 +287,19 @@ h2 {
 
   .hero {
     padding: 0.35rem 0.8rem 0;
+  }
+
+  .header-brand {
+    gap: 0.7rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .header-brand img {
+    max-width: 44vw;
+  }
+
+  .header-title {
+    font-size: clamp(1rem, 4.4vw, 1.35rem);
   }
 
   .hero-image {
