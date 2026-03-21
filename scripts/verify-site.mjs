@@ -50,17 +50,16 @@ async function verifyScenario(browser, scenario) {
   await page.waitForSelector(".hero-image");
   await page.waitForSelector(".about");
   await page.waitForSelector(".calendar iframe");
+  await page.waitForSelector(".hero-slide.is-active");
 
   const title = await page.title();
   assert(
-    title === "River City Raptors | Little League Team",
+    title === "Brawley Little League",
     `Unexpected page title for ${scenario.label}: ${title}`
   );
 
-  const heading = page.getByRole("heading", { level: 1, name: "River City Raptors" });
-  await heading.waitFor();
-
   const heroImage = page.locator(".hero-image");
+  const activeHeroSlide = page.locator(".hero-slide.is-active");
   const aboutSection = page.locator(".about");
   const calendarSection = page.locator(".calendar");
   const iframe = page.locator(".calendar iframe");
@@ -71,6 +70,10 @@ async function verifyScenario(browser, scenario) {
   ]);
 
   assert(await heroImage.isVisible(), `${scenario.label} hero image should be visible`);
+  assert(
+    await activeHeroSlide.isVisible(),
+    `${scenario.label} active carousel slide should be visible`
+  );
   assert(await aboutSection.isVisible(), `${scenario.label} about section should be visible`);
   assert(await iframe.isVisible(), `${scenario.label} calendar iframe should be visible`);
 
