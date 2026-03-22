@@ -130,9 +130,24 @@
     </footer>
 
     <script>
+      const headerBrand = document.querySelector(".header-brand");
       const carouselSlides = Array.from(
         document.querySelectorAll(".hero-slide"),
       );
+
+      if (headerBrand) {
+        const scrollThreshold = 12;
+
+        const syncHeaderBrand = () => {
+          headerBrand.classList.toggle(
+            "is-scrolled",
+            window.scrollY > scrollThreshold,
+          );
+        };
+
+        syncHeaderBrand();
+        window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+      }
 
       if (carouselSlides.length > 1) {
         const firstSlideIndex = 0;

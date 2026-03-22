@@ -42,15 +42,46 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
+  isolation: isolate;
   display: flex;
   align-items: center;
   gap: 1rem;
   height: var(--brand-bar-height);
   padding: 0.9rem 1.25rem;
-  background: linear-gradient(135deg, #4b0082 0%, #2b2fae 45%, #0032ac 100%);
+  background: rgba(8, 18, 90, 0.18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 10px 24px rgba(5, 9, 28, 0.3);
   backdrop-filter: blur(10px);
+  transition:
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.header-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #4b0082 0%, #2b2fae 45%, #0032ac 100%);
+  opacity: 1;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.header-brand > * {
+  position: relative;
+  z-index: 1;
+}
+
+.header-brand.is-scrolled {
+  background: rgba(8, 18, 90, 0.32);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(5, 9, 28, 0.24);
+}
+
+.header-brand.is-scrolled::before {
+  opacity: 0.8;
 }
 
 .header-brand img {
@@ -313,6 +344,11 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .header-brand,
+  .header-brand::before {
+    transition-duration: 0.01ms;
+  }
+
   .hero-slide {
     transition-duration: 0.01ms;
   }
