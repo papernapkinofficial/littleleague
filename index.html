@@ -73,7 +73,7 @@
       <section class="card about" aria-labelledby="about-title">
         <div class="section-heading">
           <p class="section-label">About</p>
-          <h2 id="about-title">About the Team</h2>
+          <h2 id="about-title">Our Organization</h2>
         </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
@@ -139,7 +139,9 @@
         let order = [
           firstSlideIndex,
           ...shuffle(
-            [...carouselSlides.keys()].filter((index) => index !== firstSlideIndex),
+            [...carouselSlides.keys()].filter(
+              (index) => index !== firstSlideIndex,
+            ),
           ),
         ];
         let currentPosition = 0;
