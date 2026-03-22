@@ -8,6 +8,7 @@
   --ink-strong: #173346;
   --ink-soft: #3f5969;
   --ll-purple: #00003a;
+  --brand-blue: #0032ac;
   --accent: #b13b29;
   --accent-deep: #80261a;
   --field: #6e9c52;
@@ -25,8 +26,7 @@ body {
   font-family: "Trebuchet MS", "Gill Sans", sans-serif;
 
   color: var(--ink-strong);
-  /* background-color: var(--ll-purple); */
-  background-color: #ffffff;
+  background-color: var(--ll-purple);
 }
 
 body::before {
@@ -34,22 +34,6 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    radial-gradient(
-      circle at 20% 15%,
-      rgba(255, 255, 255, 0.45) 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 72% 28%,
-      rgba(255, 255, 255, 0.35) 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 38% 70%,
-      rgba(255, 255, 255, 0.3) 0 2px,
-      transparent 3px
-    );
   opacity: 0.7;
 }
 
@@ -71,9 +55,9 @@ body::before {
   gap: 1rem;
   height: var(--brand-bar-height);
   padding: 0.9rem 1.25rem;
-  background: rgba(0, 0, 58, 0.96);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 24px rgba(5, 9, 28, 0.3);
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(0, 50, 172, 0.16);
+  box-shadow: 0 10px 24px rgba(5, 9, 28, 0.12);
   backdrop-filter: blur(10px);
 }
 
@@ -91,7 +75,8 @@ body::before {
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
   line-height: 1.05;
-  color: #ffffff;
+  color: var(--brand-blue);
+  text-transform: uppercase;
 }
 
 .hero-image {
@@ -257,16 +242,16 @@ h2 {
 .footer {
   padding: 1.4rem 1.25rem 2.5rem;
   text-align: center;
-  background: rgba(0, 0, 58, 0.96);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 -10px 24px rgba(5, 9, 28, 0.16);
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid rgba(0, 50, 172, 0.16);
+  box-shadow: 0 -10px 24px rgba(5, 9, 28, 0.08);
 }
 
 .footer p {
   margin: 0 auto;
   max-width: 42rem;
   font-size: 0.95rem;
-  color: #ffffff;
+  color: var(--brand-blue);
 }
 
 @media (max-width: 860px) {
