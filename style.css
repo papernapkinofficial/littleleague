@@ -29,14 +29,6 @@ body {
   background-color: var(--ll-purple);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
 .hero {
   position: relative;
   max-width: 1180px;
@@ -55,9 +47,9 @@ body::before {
   gap: 1rem;
   height: var(--brand-bar-height);
   padding: 0.9rem 1.25rem;
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom: 1px solid rgba(0, 50, 172, 0.16);
-  box-shadow: 0 10px 24px rgba(5, 9, 28, 0.12);
+  background: linear-gradient(135deg, #4b0082 0%, #2b2fae 45%, #0032ac 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 24px rgba(5, 9, 28, 0.3);
   backdrop-filter: blur(10px);
 }
 
@@ -71,11 +63,13 @@ body::before {
 
 .header-title {
   margin: 0;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Arial Black", "Franklin Gothic Heavy", "Impact", sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 0.04em;
   line-height: 1.05;
-  color: var(--brand-blue);
+  color: #ffeb3b;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
 }
 
@@ -223,7 +217,7 @@ h2 {
 .calendar-shell {
   margin-top: 1rem;
   padding: 0.65rem;
-  /* border-radius: 1.4rem; */
+  border-radius: 1.4rem;
   /* background:
     linear-gradient(135deg, rgba(177, 59, 41, 0.16), rgba(11, 87, 208, 0.08)),
     #fffdfa;
