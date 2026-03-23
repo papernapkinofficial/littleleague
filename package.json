@@ -1,0 +1,12 @@
+{
+  "name": "littleleague",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "verify": "./scripts/run-playwright-check.sh",
+    "verify:headed": "HEADLESS=0 ./scripts/run-playwright-check.sh"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}

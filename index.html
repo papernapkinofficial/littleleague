@@ -4,11 +4,204 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brawley Little League</title>
+    <meta
+      name="description"
+      content="Brawley little league team page with team details and a shared calendar."
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, vitae?
-    </h1>
+    <div class="header-brand">
+      <img src="assets/brawley_ll_logo.png" alt="Brawley Little League logo" />
+      <p class="header-title">Brawley Little League</p>
+    </div>
+
+    <header class="hero">
+      <div
+        class="hero-image hero-carousel"
+        aria-label="Brawley Little League photo carousel"
+      >
+        <img
+          class="hero-slide is-active"
+          src="assets/header_carousel/1.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/2.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/3.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/4.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/5.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="hero-slide"
+          src="assets/header_carousel/6.JPG"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+      <!-- <div class="hero-copy">
+        <p class="eyebrow">Brawley, CA Little League</p>
+        <!-- <h1>Brawley Little League</h1>
+        <p class="hero-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          dicta quidem dolorem, ex hic voluptate!
+ 
+        </p> -->
+      <!-- </div> -->
+    </header>
+
+    <main class="page-shell">
+      <section class="card about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="section-label">About</p>
+          <h2 id="about-title">Our Organization</h2>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          dicta quidem dolorem, ex hic voluptate!
+        </p>
+        <figure class="about-photo">
+          <img
+            src="assets/brawley_ll_board.JPG"
+            alt="Brawley Little League board members gathered together"
+            loading="lazy"
+          />
+        </figure>
+        <div class="details-grid" aria-label="Team highlights">
+          <div class="about-card">
+            <h3>Card 1</h3>
+            <p>meowmeowmeowmeow whatever this is just placeholder text</p>
+          </div>
+          <div class="about-card">
+            <h3>Card 2</h3>
+            <p>asjkfiosajgioasjgioasjgioasjgio;ajsg</p>
+          </div>
+          <div class="about-card">
+            <h3>Card 3</h3>
+            <p>another card perhaps</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card calendar" aria-labelledby="calendar-title">
+        <div class="section-heading">
+          <p class="section-label">Schedule</p>
+          <h2 id="calendar-title">Game Calendar</h2>
+        </div>
+        <!-- <p class="calendar-intro">
+          Keep track of practices, games, and league events. Swap this public
+          embed URL with your team&apos;s Google Calendar share link when you
+          are ready.
+        </p> -->
+        <div class="calendar-shell">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=en.usa%23holiday%40group.v.calendar.google.com&color=%230B57D0"
+            title="Google Calendar embed for the Brawley little league team schedule"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum fugiat
+        cupiditate saepe laboriosam minus?
+      </p>
+    </footer>
+
+    <script>
+      const headerBrand = document.querySelector(".header-brand");
+      const carouselSlides = Array.from(
+        document.querySelectorAll(".hero-slide"),
+      );
+
+      if (headerBrand) {
+        const scrollThreshold = 12;
+
+        const syncHeaderBrand = () => {
+          headerBrand.classList.toggle(
+            "is-scrolled",
+            window.scrollY > scrollThreshold,
+          );
+        };
+
+        syncHeaderBrand();
+        window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+      }
+
+      if (carouselSlides.length > 1) {
+        const firstSlideIndex = 0;
+        let order = [
+          firstSlideIndex,
+          ...shuffle(
+            [...carouselSlides.keys()].filter(
+              (index) => index !== firstSlideIndex,
+            ),
+          ),
+        ];
+        let currentPosition = 0;
+
+        setActiveSlide(order[currentPosition]);
+
+        window.setInterval(() => {
+          currentPosition += 1;
+
+          if (currentPosition >= order.length) {
+            order = shuffle(
+              [...carouselSlides.keys()],
+              order[order.length - 1],
+            );
+            currentPosition = 0;
+          }
+
+          setActiveSlide(order[currentPosition]);
+        }, 5000);
+      }
+
+      function setActiveSlide(activeIndex) {
+        carouselSlides.forEach((slide, index) => {
+          const isActive = index === activeIndex;
+          slide.classList.toggle("is-active", isActive);
+          slide.setAttribute("aria-hidden", String(!isActive));
+        });
+      }
+
+      function shuffle(items, firstItemToAvoid = null) {
+        const shuffled = [...items];
+
+        for (let index = shuffled.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          const currentValue = shuffled[index];
+          shuffled[index] = shuffled[randomIndex];
+          shuffled[randomIndex] = currentValue;
+        }
+
+        if (shuffled.length > 1 && shuffled[0] === firstItemToAvoid) {
+          shuffled.push(shuffled.shift());
+        }
+
+        return shuffled;
+      }
+    </script>
   </body>
 </html>
