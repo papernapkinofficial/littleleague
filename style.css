@@ -51,7 +51,7 @@ body {
   gap: 1rem;
   height: var(--brand-bar-height);
   padding: 0.9rem 1.25rem;
-  background: rgba(8, 18, 90, 0.18);
+  background: rgba(0, 50, 172, 0.92);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 10px 24px rgba(5, 9, 28, 0.3);
   backdrop-filter: blur(10px);
@@ -61,30 +61,15 @@ body {
     background-color 220ms ease;
 }
 
-.header-brand::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, #4b0082 0%, #2b2fae 45%, #0032ac 100%);
-  opacity: 1;
-  transition: opacity 220ms ease;
-  pointer-events: none;
-}
-
 .header-brand > * {
   position: relative;
   z-index: 1;
 }
 
 .header-brand.is-scrolled {
-  background: rgba(8, 18, 90, 0.32);
+  background: rgba(0, 50, 172, 0.92);
   border-bottom-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 20px rgba(5, 9, 28, 0.24);
-}
-
-.header-brand.is-scrolled::before {
-  opacity: 0.8;
 }
 
 .header-brand img {
@@ -193,19 +178,12 @@ h1 {
 .card {
   position: relative;
   padding: 1.6rem;
-  border: 1px solid var(--surface-glass-border);
+  border: 1px solid var(--surface-border);
   /* border-radius: 1.7rem; */
-  background:
-    linear-gradient(
-      155deg,
-      rgba(248, 252, 255, 0.92) 0%,
-      rgba(226, 240, 255, 0.9) 34%,
-      var(--surface-glass) 66%,
-      rgba(211, 232, 252, 0.84) 100%
-    );
+  background: rgba(255, 255, 255, 0.92);
   box-shadow:
     0 28px 60px rgba(27, 46, 58, 0.12),
-    0 12px 30px rgba(70, 127, 189, 0.12),
+    0 12px 30px rgba(27, 46, 58, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.48);
   backdrop-filter: blur(16px) saturate(135%);
   -webkit-backdrop-filter: blur(16px) saturate(135%);
@@ -216,18 +194,7 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      circle at top right,
-      var(--surface-glass-highlight),
-      rgba(255, 255, 255, 0) 42%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(157, 202, 247, 0.18),
-      rgba(157, 202, 247, 0) 46%
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(120, 170, 220, 0));
+  background: rgba(255, 255, 255, 0.08);
   pointer-events: none;
 }
 
@@ -306,7 +273,7 @@ h2 {
 .footer {
   padding: 1.4rem 1.25rem 2.5rem;
   text-align: center;
-  background: linear-gradient(135deg, #4b0082 0%, #2b2fae 45%, #0032ac 100%);
+  background: #0032ac;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -10px 24px rgba(5, 9, 28, 0.3);
 }
@@ -383,8 +350,7 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header-brand,
-  .header-brand::before {
+  .header-brand {
     transition-duration: 0.01ms;
   }
 
