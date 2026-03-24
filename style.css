@@ -125,6 +125,12 @@ body {
   opacity: 1;
 }
 
+@media (min-width: 641px) {
+  .hero-slide:first-child {
+    object-position: 50% 20%;
+  }
+}
+
 .hero-copy {
   width: min(100% - 2rem, 540px);
   margin: -4.75rem 0 0 1.25rem;
