@@ -263,6 +263,37 @@ h2 {
   border-radius: 1.4rem;
 }
 
+.calendar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(128, 38, 26, 0.16);
+  background: var(--accent);
+  color: #fffdf7;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(128, 38, 26, 0.18);
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.calendar-link:hover,
+.calendar-link:focus-visible {
+  background: var(--accent-deep);
+  box-shadow: 0 16px 28px rgba(128, 38, 26, 0.24);
+  transform: translateY(-1px);
+}
+
+.calendar-link:focus-visible {
+  outline: 3px solid rgba(0, 50, 172, 0.28);
+  outline-offset: 3px;
+}
+
 .calendar-shell iframe {
   display: block;
   width: 100%;

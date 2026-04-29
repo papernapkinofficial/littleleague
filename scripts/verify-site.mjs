@@ -62,6 +62,7 @@ async function verifyScenario(browser, scenario) {
   const activeHeroSlide = page.locator(".hero-slide.is-active");
   const aboutSection = page.locator(".about");
   const calendarSection = page.locator(".calendar");
+  const calendarLink = page.locator(".calendar-link");
   const iframe = page.locator(".calendar iframe");
 
   await Promise.all([
@@ -75,6 +76,16 @@ async function verifyScenario(browser, scenario) {
     `${scenario.label} active carousel slide should be visible`
   );
   assert(await aboutSection.isVisible(), `${scenario.label} about section should be visible`);
+  assert(
+    await calendarLink.isVisible(),
+    `${scenario.label} full calendar link should be visible`
+  );
+  assert(
+    (await calendarLink.getAttribute("href"))?.includes(
+      "7b6826790f3f7a243587a0074b5cebb38e057ccf52dde75b68b6b0a3515b5cc6%40group.calendar.google.com"
+    ),
+    `${scenario.label} full calendar link should target the team calendar`
+  );
   assert(await iframe.isVisible(), `${scenario.label} calendar iframe should be visible`);
 
   const heroBox = await heroImage.boundingBox();
