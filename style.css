@@ -257,6 +257,41 @@ h2 {
   font-size: 1.1rem;
 }
 
+.about-card p + p {
+  margin-top: 0.65rem;
+}
+
+.about-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  margin-top: 0.85rem;
+  padding: 0.58rem 0.85rem;
+  border: 1px solid rgba(0, 50, 172, 0.16);
+  background: var(--brand-blue);
+  color: #fffdf7;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 50, 172, 0.14);
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.about-card-link:hover,
+.about-card-link:focus-visible {
+  background: #001f74;
+  box-shadow: 0 14px 24px rgba(0, 50, 172, 0.2);
+  transform: translateY(-1px);
+}
+
+.about-card-link:focus-visible {
+  outline: 3px solid rgba(177, 59, 41, 0.28);
+  outline-offset: 3px;
+}
+
 .calendar-shell {
   margin-top: 1rem;
   padding: 0.65rem;
@@ -269,13 +304,14 @@ h2 {
   justify-content: center;
   gap: 0.45rem;
   min-height: 2.75rem;
+  margin-left: 0.65rem;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(128, 38, 26, 0.16);
-  background: var(--accent);
+  border: 1px solid rgba(0, 50, 172, 0.16);
+  background: var(--brand-blue);
   color: #fffdf7;
   font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 12px 24px rgba(128, 38, 26, 0.18);
+  box-shadow: 0 12px 24px rgba(0, 50, 172, 0.18);
   transition:
     background-color 160ms ease,
     box-shadow 160ms ease,
@@ -284,13 +320,13 @@ h2 {
 
 .calendar-link:hover,
 .calendar-link:focus-visible {
-  background: var(--accent-deep);
-  box-shadow: 0 16px 28px rgba(128, 38, 26, 0.24);
+  background: #001f74;
+  box-shadow: 0 16px 28px rgba(0, 50, 172, 0.24);
   transform: translateY(-1px);
 }
 
 .calendar-link:focus-visible {
-  outline: 3px solid rgba(0, 50, 172, 0.28);
+  outline: 3px solid rgba(177, 59, 41, 0.28);
   outline-offset: 3px;
 }
 
@@ -375,6 +411,10 @@ h2 {
 
   .calendar-shell {
     padding: 0.45rem;
+  }
+
+  .calendar-link {
+    margin-left: 0.45rem;
   }
 
   .calendar-shell iframe {
