@@ -17,6 +17,20 @@
     <div class="header-brand">
       <img src="assets/brawley_ll_logo.png" alt="Brawley Little League logo" />
       <p class="header-title">Brawley Little League</p>
+      <button
+        class="mobile-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+        <a href="#calendar">Game Calendar</a>
+      </nav>
     </div>
 
     <header class="hero">
@@ -139,7 +153,7 @@
         </div>
       </section>
 
-      <section class="card calendar" aria-labelledby="calendar-title">
+      <section class="card calendar" id="calendar" aria-labelledby="calendar-title">
         <div class="section-heading">
           <p class="section-label">Schedule</p>
           <h2 id="calendar-title">Game Calendar</h2>
@@ -176,6 +190,8 @@
 
     <script>
       const headerBrand = document.querySelector(".header-brand");
+      const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
       const carouselSlides = Array.from(
         document.querySelectorAll(".hero-slide"),
       );
@@ -192,6 +208,35 @@
 
         syncHeaderBrand();
         window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+      }
+
+      if (mobileMenuToggle && mobileMenu) {
+        const setMenuOpen = (isOpen) => {
+          mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+          mobileMenuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close menu" : "Open menu",
+          );
+          mobileMenu.classList.toggle("is-open", isOpen);
+        };
+
+        mobileMenuToggle.addEventListener("click", () => {
+          setMenuOpen(mobileMenuToggle.getAttribute("aria-expanded") !== "true");
+        });
+
+        mobileMenu.addEventListener("click", (event) => {
+          const target = event.target;
+
+          if (target instanceof HTMLAnchorElement) {
+            setMenuOpen(false);
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.matchMedia("(min-width: 641px)").matches) {
+            setMenuOpen(false);
+          }
+        });
       }
 
       if (carouselSlides.length > 1) {
